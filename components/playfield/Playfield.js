@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styled from "styled-components";
+// import styled from "styled-components";
 import { DOWN } from "../../constants";
 import { useInterval, useListenKeyPress } from "../../hooks";
 import {
@@ -11,6 +11,7 @@ import {
   spawnTetrad,
 } from "../../store";
 import Row from "./Row";
+import { Box } from "bushido-strap";
 
 const Playfield = () => {
   const dispatch = useDispatch();
@@ -37,21 +38,21 @@ const Playfield = () => {
   });
 
   return (
-    <Container>
+    <Box w="100vw" h="56.25vw" maxW="calc(100% / 3)" maxH="99.7vh">
       {matrix.matrix.map((row, y) => (
         <Row key={y} row={row} yCoord={y} />
       ))}
-    </Container>
+    </Box>
   );
 };
 
-const Container = styled.div`
-  width: 100vw;
-  height: 56.25vw;
-  max-width: calc(100% / 3);
-  max-height: 99.7vh;
-  // margin: auto;
-  background-color: #d0d0df;
-`;
+// const Container = styled.div`
+//   width: 100vw;
+//   height: 56.25vw;
+//   max-width: calc(100% / 3);
+//   max-height: 99.7vh;
+//   margin: auto;
+//   background-color: #d0d0df;
+// `;
 
 export default Playfield;

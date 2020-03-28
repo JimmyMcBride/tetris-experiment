@@ -8,8 +8,9 @@ import "./styles.css";
 import { applyMiddleware, createStore } from "redux";
 import logger from "redux-logger";
 import thunk from "redux-thunk";
-import styled from "styled-components";
+// import styled from "styled-components";
 import rootReducer from "../store";
+import { AppWrapper } from "bushido-strap";
 
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
@@ -35,9 +36,9 @@ export default class MyApp extends App {
         <Provider store={store}>
           {/* <ThemeProvider theme={theme}> */}
           {/* <CssBaseline /> */}
-          <AppContainer className="app">
+          <AppWrapper className="app">
             <Component {...pageProps} />
-          </AppContainer>
+          </AppWrapper>
           {/* </ThemeProvider> */}
         </Provider>
       </>
@@ -45,15 +46,15 @@ export default class MyApp extends App {
   }
 }
 
-const AppContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  max-width: 100vw;
-  max-height: 100vh;
-  background-color: #dcdcdc;
-  /* border: 2px solid blue; */
+// const AppContainer = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   max-width: 100vw;
+//   max-height: 100vh;
+//   background-color: #dcdcdc;
+//   /* border: 2px solid blue; */
 
-  * {
-    box-sizing: border-box;
-  }
-`;
+//   * {
+//     box-sizing: border-box;
+//   }
+// `;

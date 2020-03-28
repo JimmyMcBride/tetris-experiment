@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styled from "styled-components";
+// import styled from "styled-components";
 import { deleteFilledRow } from "../../store";
 import { Cell } from "./Cell";
+import { Flex } from "bushido-strap";
 
 const Row = ({ row, yCoord }) => {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const Row = ({ row, yCoord }) => {
   }, [tetradLocked, tetrad, yCoord, dispatch]);
 
   return (
-    <Container>
+    <Flex w="100%" h="5%">
       {row.map((cell, i) => (
         <Cell
           key={i}
@@ -29,14 +30,14 @@ const Row = ({ row, yCoord }) => {
           }}
         />
       ))}
-    </Container>
+    </Flex>
   );
 };
 
-const Container = styled.div`
-  display: flex;
-  width: 100%;
-  height: 5%;
-`;
+// const Container = styled.div`
+//   display: flex;
+//   width: 100%;
+//   height: 5%;
+// `;
 
 export default Row;
