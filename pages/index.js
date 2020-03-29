@@ -11,7 +11,7 @@ function Index() {
   return (
     <Wrapper>
       {!gameStarted && <StartGameModal />}
-      <Flex wrap>
+      <Flex wrap="true">
         <Box w="calc(100% / 3)" maxH="100%" />
         <Playfield />
         <Flex w="calc(100% / 3)" maxH="100%">
