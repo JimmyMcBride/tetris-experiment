@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
-// import withApollo from "../lib/with-apollo";
-import { Playfield } from "../components";
-import StartGameModal from "../components/modals/StartGameModal";
-import ScoreBoard from "../components/score/ScoreBoard";
+import withApollo from "../../lib/with-apollo";
+import { Playfield } from "../../components";
+import StartGameModal from "../../components/modals/StartGameModal";
+import ScoreBoard from "../../components/score/ScoreBoard";
 import { Wrapper, Box, Flex } from "bushido-strap";
 
 function Index() {
@@ -22,5 +22,4 @@ function Index() {
   );
 }
 
-export default Index;
-// export default withApollo(Index);
+export default withApollo(Index);

@@ -1,31 +1,23 @@
+
 -- command to run the script in terminal
--- 🔻 use this command whit your terminal is pointing at the root directory of your project
--- psql -U postgres -a -f remakeDatabase.sql
+-- 🔻 use this command if your terminal is already in the devTools directory
+-- 'psql -U postgres -a -f remakeDatabase.sql' or 'yarn remake'
 
--- env: DATABASE_URL=postgres://tetris_player:password@localhost:5432/tetris_be
+DROP DATABASE IF EXISTS tetris_ts;
+DROP ROLE IF EXISTS type_user;
 
-DROP DATABASE IF EXISTS tetris_be;
-DROP ROLE IF EXISTS tetris_player;
-
-CREATE ROLE tetris_player
+CREATE ROLE type_user
 WITH 
   LOGIN
   PASSWORD 'password'
   CREATEDB 
-  SUPERUSER
-  CREATEROLE
+  NOSUPERUSER
+  NOCREATEROLE
 ;
 
-CREATE DATABASE tetris_be
+CREATE DATABASE tetris_ts
   WITH 
-  OWNER = tetris_player
-  ENCODING = 'UTF8'
-  CONNECTION LIMIT = -1
-;
-
-CREATE DATABASE tetris_test_be
-  WITH 
-  OWNER = tetris_player
+  OWNER = type_user
   ENCODING = 'UTF8'
   CONNECTION LIMIT = -1
 ;

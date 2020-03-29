@@ -1,28 +1,28 @@
 type User {
-  username: String
-  password: String
-  scores: [Score]!
+  id: ID!
+  username: String!
+  password: String!
 }
 
-type Score {
-  value: Int!
-  level: Int!
-  cleared: Int!
-  user: User!
-}
-
-type Query {
-  currentUser: User
-  hello: String!
-}
+# type Score {
+#   value: Int!
+#   level: Int!
+#   cleared: Int!
+#   public: Boolean!
+#   createAt: String!
+# }
 
 input AuthInput {
   username: String!
   password: String!
 }
 
+type Query {
+  user(id: ID!): User!
+  users: [User!]!
+}
+
 type Mutation {
-  login(data: AuthInput): User
-  register(data: AuthInput): User
-  logout: Boolean!
+  register(data: AuthInput!): User!
+  login(data: AuthInput!): User!
 }

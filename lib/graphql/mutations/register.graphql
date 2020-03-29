@@ -1,0 +1,7 @@
+mutation Register($data: AuthInput!) {
+  register(data: $data) {
+    id
+    username
+    password
+  }
+}

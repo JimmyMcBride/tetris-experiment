@@ -38,16 +38,3 @@ export default class MyApp extends App {
     );
   }
 }
-
-// const AppContainer = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   max-width: 100vw;
-//   max-height: 100vh;
-//   background-color: #dcdcdc;
-//   /* border: 2px solid blue; */
-
-//   * {
-//     box-sizing: border-box;
-//   }
-// `;

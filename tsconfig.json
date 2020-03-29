@@ -2,52 +2,22 @@
   "compilerOptions": {
     "allowJs": true,
     "alwaysStrict": true,
-    "target": "esnext",
-    "module": "esnext",
-    "lib": [
-      "dom",
-      "es6",
-      "es2017",
-      "esnext.asynciterable"
-    ],
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
     "jsx": "preserve",
-    "sourceMap": true,
+    "lib": ["dom", "es2017"],
+    "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
-    "declaration": false,
-    "composite": false,
-    "removeComments": true,
-    "isolatedModules": true,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "resolveJsonModule": true,
-    "strictFunctionTypes": true,
-    "skipLibCheck": true,
-    "noImplicitThis": true,
+    "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "preserveConstEnums": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "strict": false
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "esnext"
   },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "trailing-comma": [
-    true,
-    {
-      "multiline": "always",
-      "singleline": "never"
-    }
-  ]
+  "exclude": ["node_modules"],
+  "include": ["**/*.ts", "**/*.tsx"]
 }

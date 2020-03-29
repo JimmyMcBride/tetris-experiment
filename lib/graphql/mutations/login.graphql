@@ -1,0 +1,7 @@
+mutation Login($data: AuthInput!) {
+  login(data: $data) {
+    id
+    username
+    password
+  }
+}
