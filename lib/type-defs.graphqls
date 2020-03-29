@@ -1,0 +1,28 @@
+type User {
+  username: String
+  password: String
+  scores: [Score]!
+}
+
+type Score {
+  value: Int!
+  level: Int!
+  cleared: Int!
+  user: User!
+}
+
+type Query {
+  currentUser: User
+  hello: String!
+}
+
+input AuthInput {
+  username: String!
+  password: String!
+}
+
+type Mutation {
+  login(data: AuthInput): User
+  register(data: AuthInput): User
+  logout: Boolean!
+}
