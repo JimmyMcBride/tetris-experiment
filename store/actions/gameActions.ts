@@ -2,12 +2,12 @@ import { spawnTetrad } from "../index";
 export const START_GAME = "START_GAME";
 export const CALCULATE_SCORE = "CALCULATE_SCORE";
 
-export const startGame = () => dispatch => {
+export const startGame = () => (dispatch: any) => {
   dispatch({ type: START_GAME });
   dispatch(spawnTetrad());
 };
 
-export const calculateScore = () => (dispatch, state) => {
+export const calculateScore = () => (dispatch: any, state: any) => {
   const numRows = state().playfield.deletedRows.length;
   let { rowsCleared, level, score } = state().game;
 

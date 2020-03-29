@@ -16,7 +16,7 @@ const initialState = {
   deletedRows: [],
 };
 
-const playfieldReducer = (state = initialState, action) => {
+const playfieldReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case SPAWN_TETRAD: {
       return {

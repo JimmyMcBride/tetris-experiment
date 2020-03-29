@@ -6,7 +6,7 @@ export const TETRAD_LOCKED = "TETRAD_LOCKED";
 export const DELETE_ROW = "DELETE_ROW";
 export const COLLAPSE_ROWS = "COLLAPSE_ROWS";
 
-export const spawnTetrad = (lastType = "") => (dispatch, state) => {
+export const spawnTetrad = (lastType = "") => (dispatch: any, state: any) => {
   let { matrix, tetrad } = state().playfield;
   console.log(matrix);
   tetrad = getRandomTetrad(lastType);
@@ -21,7 +21,7 @@ export const spawnTetrad = (lastType = "") => (dispatch, state) => {
   });
 };
 
-export const moveTetrad = (direction = DOWN) => (dispatch, state) => {
+export const moveTetrad = (direction = DOWN) => (dispatch: any, state: any) => {
   let { matrix, tetrad } = state().playfield;
 
   if (tetrad.canMove(direction, matrix)) {
@@ -39,7 +39,10 @@ export const moveTetrad = (direction = DOWN) => (dispatch, state) => {
   }
 };
 
-export const checkIfBlocked = (direction = DOWN) => (dispatch, state) => {
+export const checkIfBlocked = (direction = DOWN) => (
+  dispatch: any,
+  state: any
+) => {
   let { matrix, tetrad } = state().playfield;
 
   if (!tetrad.canMove(direction, matrix)) {
@@ -54,7 +57,10 @@ export const checkIfBlocked = (direction = DOWN) => (dispatch, state) => {
   }
 };
 
-export const deleteFilledRow = rowCoord => (dispatch, state) => {
+export const deleteFilledRow = (rowCoord: any) => (
+  dispatch: any,
+  state: any
+) => {
   let { matrix } = state().playfield;
 
   if (matrix.rowFilled(rowCoord)) {
@@ -70,7 +76,7 @@ export const deleteFilledRow = rowCoord => (dispatch, state) => {
   }
 };
 
-export const collapseEmptyRows = () => (dispatch, state) => {
+export const collapseEmptyRows = () => (dispatch: any, state: any) => {
   let { matrix, deletedRows } = state().playfield;
 
   if (deletedRows.length) {

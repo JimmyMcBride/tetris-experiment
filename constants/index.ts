@@ -25,7 +25,7 @@ export const GRAVITY_16_18 = 3;
 export const GRAVITY_19_28 = 2;
 export const GRAVITY_29_PLUS = 1;
 
-export const G = [
+export const G: Array<number> = [
   GRAVITY_00,
   GRAVITY_01,
   GRAVITY_02,

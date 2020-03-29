@@ -2,6 +2,11 @@
  *                         CELL                          *
  ********************************************************/
 export class Cell {
+  color: string;
+  isActive: boolean;
+  isLocked: boolean;
+  x: number;
+  y: number;
   constructor(
     x = 0,
     y = 0,
@@ -32,7 +37,7 @@ export class Cell {
     this.isLocked = false;
   }
 
-  coordsMatch(x, y) {
+  coordsMatch(x: number, y: number) {
     return this.x === x && this.y === y;
   }
 }

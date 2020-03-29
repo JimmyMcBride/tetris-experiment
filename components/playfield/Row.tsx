@@ -5,9 +5,14 @@ import { deleteFilledRow } from "../../store";
 import { Cell } from "./Cell";
 import { Flex } from "bushido-strap";
 
-const Row = ({ row, yCoord }) => {
+interface Coordinates {
+  row: Array<any>;
+  yCoord: number;
+}
+
+const Row = ({ row, yCoord }: Coordinates) => {
   const dispatch = useDispatch();
-  const { tetrad, tetradLocked } = useSelector(state => state.playfield);
+  const { tetrad, tetradLocked } = useSelector((state: any) => state.playfield);
   useEffect(() => {
     if (tetradLocked) {
       if (tetrad.getYCoords().includes(yCoord)) {
@@ -18,7 +23,7 @@ const Row = ({ row, yCoord }) => {
 
   return (
     <Flex w="100%" h="5%">
-      {row.map((cell, i) => (
+      {row.map((cell: any, i: number) => (
         <Cell
           key={i}
           isLocked={cell.isLocked}
@@ -33,11 +38,5 @@ const Row = ({ row, yCoord }) => {
     </Flex>
   );
 };
-
-// const Container = styled.div`
-//   display: flex;
-//   width: 100%;
-//   height: 5%;
-// `;
 
 export default Row;

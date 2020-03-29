@@ -1,4 +1,4 @@
-import { Tetrad } from "../../store/datatypes/types/Tetrad";
+import { Tetrad } from "../types/Tetrad";
 import * as tetradData from "./data.json";
 /*
   Based on the original Tetris NES, Random Generator Algorithm:
@@ -11,8 +11,9 @@ import * as tetradData from "./data.json";
 */
 const types = ["I", "O", "T", "S", "Z", "J", "L"];
 
-export const getRandomTetrad = lastType => {
+export const getRandomTetrad = (lastType: any) => {
   let nextNumber, nextType;
+  // @ts-ignore
   let tetrads = deepCopy(tetradData.default);
 
   do {
@@ -30,6 +31,6 @@ export const getRandomTetrad = lastType => {
   );
 };
 
-function deepCopy(object) {
+export const deepCopy = (object: object) => {
   return JSON.parse(JSON.stringify(object));
-}
+};

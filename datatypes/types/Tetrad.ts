@@ -1,3 +1,4 @@
+import { Coordinates } from "./../index";
 import { DOWN, LEFT, RIGHT, ROTATE } from "../../constants";
 import { deepCopy } from "../helper";
 
@@ -5,6 +6,12 @@ import { deepCopy } from "../helper";
  *                       TETROMINO                       *
  ********************************************************/
 export class Tetrad {
+  type: string;
+  color: string;
+  coordinates: never[];
+  prevCoordinates: never[];
+  orientation: number;
+  rotationalMatrices: never[];
   constructor(
     type = "",
     color = "#000000",
@@ -21,11 +28,11 @@ export class Tetrad {
     this.rotationalMatrices = rotationalMatrices;
   }
 
-  canMove(direction, matrix) {
+  canMove(direction: any, matrix: any) {
     let canMove = true;
     let nextCoordinates = this.nextCoordinates(direction);
 
-    nextCoordinates.forEach(({ x, y }) => {
+    nextCoordinates.forEach(({ x, y }: Coordinates) => {
       if (matrix.outOfBounds(x, y)) {
         canMove = false;
       } else if (matrix.cellAt(x, y).isLocked) {
@@ -38,7 +45,7 @@ export class Tetrad {
 
   getYCoords() {
     const uniqueYCoords = this.coordinates
-      .map(coord => coord.y)
+      .map((coord: any) => coord.y)
       .filter((y, i, yCoords) => {
         return yCoords.indexOf(y === i);
       });
@@ -46,14 +53,15 @@ export class Tetrad {
     return uniqueYCoords;
   }
 
-  move(direction) {
+  move(direction: any) {
     if (direction === ROTATE) {
       return this.rotate();
     }
 
     this.prevCoordinates = deepCopy(this.coordinates);
 
-    this.coordinates = this.coordinates.map(coord => {
+    // @ts-ignore
+    this.coordinates = this.coordinates.map((coord: any) => {
       switch (direction) {
         case DOWN:
           coord.y += 1;
@@ -72,14 +80,14 @@ export class Tetrad {
     return this;
   }
 
-  nextCoordinates(direction) {
+  nextCoordinates(direction: any) {
     if (direction === ROTATE) {
       return this.nextRotationCoords();
     }
 
     let nextCoordinates = deepCopy(this.coordinates);
 
-    nextCoordinates = nextCoordinates.map(coord => {
+    nextCoordinates = nextCoordinates.map((coord: any) => {
       switch (direction) {
         case DOWN:
           coord.y += 1;
@@ -103,7 +111,7 @@ export class Tetrad {
 
     let nextCoordinates = deepCopy(this.coordinates);
 
-    nextCoordinates = nextCoordinates.map((coord, i) => {
+    nextCoordinates = nextCoordinates.map((coord: any, i: number) => {
       coord.x += nextDistances[i].x;
       coord.y += nextDistances[i].y;
       return coord;
@@ -113,11 +121,12 @@ export class Tetrad {
   }
 
   rotate() {
-    const distances = this.rotationalMatrices[this.orientation];
+    const distances: any = this.rotationalMatrices[this.orientation];
 
     this.prevCoordinates = deepCopy(this.coordinates);
 
-    this.coordinates = this.coordinates.map((coord, i) => {
+    // @ts-ignore
+    this.coordinates = this.coordinates.map((coord: any, i: number) => {
       coord.x += distances[i].x;
       coord.y += distances[i].y;
       return coord;
@@ -131,9 +140,10 @@ export class Tetrad {
   unrotate() {
     this.orientation = this.orientation === 0 ? 3 : --this.orientation;
 
-    const distances = this.rotationalMatrices[this.orientation];
+    const distances: any = this.rotationalMatrices[this.orientation];
 
-    this.coordinates = this.coordinates.map((coord, i) => {
+    // @ts-ignore
+    this.coordinates = this.coordinates.map((coord: any, i: number) => {
       coord.x += distances[i].x * -1;
       coord.y += distances[i].y * -1;
       return coord;

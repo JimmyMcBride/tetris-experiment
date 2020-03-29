@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 
 const ScoreBoard = () => {
-  const { score, level, rowsCleared } = useSelector(state => state.game);
+  const { score, level, rowsCleared } = useSelector((state: any) => state.game);
   return (
     <Container>
       <h1>Score</h1>

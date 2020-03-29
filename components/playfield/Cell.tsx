@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Flex, theme } from "bushido-strap";
 
-export const Cell = props => {
+export const Cell = (props: any) => {
   // console.log('props', props);
   return (
     <Container

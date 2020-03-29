@@ -6,7 +6,7 @@ import ScoreBoard from "../components/score/ScoreBoard";
 import { Wrapper, Box, Flex } from "bushido-strap";
 
 function Index() {
-  const { gameStarted } = useSelector(state => state.game);
+  const { gameStarted } = useSelector((state: any) => state.game);
 
   return (
     <Wrapper>

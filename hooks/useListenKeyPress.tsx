@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { DOWN, LEFT, RIGHT, ROTATE } from "../constants";
 
-const useListenKeyPress = callback => {
-  const keyDownHandler = e => {
+const useListenKeyPress = (callback: any) => {
+  const keyDownHandler = (e: any) => {
     switch (e.keyCode) {
       case 40:
         callback(DOWN);

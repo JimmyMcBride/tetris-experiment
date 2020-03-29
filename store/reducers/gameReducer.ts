@@ -8,7 +8,7 @@ const initialState = {
   score: 0,
 };
 
-const gameReducer = (state = initialState, action) => {
+const gameReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case START_GAME:
       return {
